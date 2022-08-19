@@ -4,7 +4,9 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Path;
+
 import androidx.annotation.Nullable;
+
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -32,6 +34,7 @@ public class Practice16TextPathView extends View {
         // 使用 Paint.getTextPath() 来获取文字的 Path
 
         pathPaint.setStyle(Paint.Style.STROKE);
+        paint.getTextPath(text, 0, text.length(), 50, 400, textPath);
     }
 
     @Override
@@ -39,7 +42,6 @@ public class Practice16TextPathView extends View {
         super.onDraw(canvas);
 
         canvas.drawText(text, 50, 200, paint);
-
         canvas.drawPath(textPath, pathPaint);
     }
 }
